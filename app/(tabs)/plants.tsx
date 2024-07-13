@@ -16,17 +16,17 @@ import { ThemedText } from '@/components/ThemedText';
 
 //#region Component
 
-type IndexTabProps = {};
+type PlantsTabProps = {};
 
-const IndexTab: FC<IndexTabProps> = () => {
+const PlantsTab: FC<PlantsTabProps> = () => {
 
 	return (
-		<VokseView title="Hello, Temmi!">
+		<VokseView title="Plants">
 			<ThemedText type='default'>Todo</ThemedText>
 		</VokseView>
 	);
 }
 
-export default IndexTab;
+export default PlantsTab;
 
 //#endregion

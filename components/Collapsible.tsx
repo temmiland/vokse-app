@@ -1,6 +1,13 @@
+/**
+ * Copyright (C) 2024 Temmi Pietsch - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the explicitly
+ * permission of the author.
+ */
+
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { PropsWithChildren, useState } from 'react';
-import { StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
+import { Platform, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -11,7 +18,7 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   const theme = useColorScheme() ?? 'light';
 
   return (
-    <ThemedView>
+    <ThemedView style={{backgroundColor: 'transparent'}}>
       <TouchableOpacity
         style={styles.heading}
         onPress={() => setIsOpen((value) => !value)}
@@ -28,14 +35,59 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   );
 }
 
-const styles = StyleSheet.create({
-  heading: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  content: {
-    marginTop: 6,
-    marginLeft: 24,
-  },
-});
+let styles: any;
+
+switch (Platform.OS) {
+	case 'web':
+		styles = StyleSheet.create({
+			heading: {
+				flexDirection: 'row',
+				alignItems: 'center',
+				gap: 6,
+			  },
+			  content: {
+				marginTop: 6,
+				marginLeft: 24,
+			  },
+		});
+		break;
+	case 'ios':
+		styles = StyleSheet.create({
+			heading: {
+				flexDirection: 'row',
+				alignItems: 'center',
+				gap: 6,
+			  },
+			  content: {
+				marginTop: 6,
+				marginLeft: 24,
+			  },
+		});
+		break;
+	case 'android':
+		styles = StyleSheet.create({
+			heading: {
+				flexDirection: 'row',
+				alignItems: 'center',
+				gap: 6,
+			  },
+			  content: {
+				marginTop: 50,
+				marginLeft: 24,
+			  },
+		});
+		break;
+	default:
+		styles = StyleSheet.create({
+			heading: {
+				flexDirection: 'row',
+				alignItems: 'center',
+				gap: 6,
+			  },
+			  content: {
+				marginTop: 6,
+				marginLeft: 24,
+			  },
+		});
+		break;
+}

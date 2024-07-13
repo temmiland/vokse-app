@@ -1,32 +1,39 @@
+/**
+ * Copyright (C) 2024 Temmi Pietsch - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the explicitly
+ * permission of the author.
+ */
+
+//#region Imports
+
 import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { FC } from 'react';
 
+import VokseView from '@/components/navigation/VokseView';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function NotFoundScreen() {
-  return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This screen doesn't exist.</ThemedText>
-        <Link href="/" style={styles.link}>
-          <ThemedText type="link">Go to home screen!</ThemedText>
-        </Link>
-      </ThemedView>
-    </>
-  );
+//#endregion
+
+//#region Component
+
+type NotFoundScreenProps = {};
+
+const NotFoundScreen: FC<NotFoundScreenProps> = () => {
+
+	return (
+		<>
+			<Stack.Screen options={{title: '', headerShown: false }}/>
+			<VokseView title="Oops!">
+				<ThemedText type="default">This screen doesn't exist.</ThemedText>
+				<Link href="/">
+					<ThemedText type="link">Go to home screen!</ThemedText>
+				</Link>
+			</VokseView>
+		</>
+	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-});
+export default NotFoundScreen;
+
+//#endregion

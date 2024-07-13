@@ -1,3 +1,10 @@
+/**
+ * Copyright (C) 2024 Temmi Pietsch - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the explicitly
+ * permission of the author.
+ */
+
 // NOTE: The default React Native styling doesn't support server rendering.
 // Server rendered styles should not change between the first render of the HTML
 // and the first render on the client. Typically, web developers will use CSS media queries

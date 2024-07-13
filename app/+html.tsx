@@ -1,11 +1,24 @@
+/**
+ * Copyright (C) 2024 Temmi Pietsch - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the explicitly
+ * permission of the author.
+ */
+
+//#region Imports
+
 import { ScrollViewStyleReset } from 'expo-router/html';
-import { type PropsWithChildren } from 'react';
+import { FC, type PropsWithChildren } from 'react';
+
+//#endregion
+
+//#region Component
 
 /**
  * This file is web-only and used to configure the root HTML for every web page during static rendering.
  * The contents of this function only run in Node.js environments and do not have access to the DOM or browser APIs.
  */
-export default function Root({ children }: PropsWithChildren) {
+const Root: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
       <head>
@@ -28,12 +41,21 @@ export default function Root({ children }: PropsWithChildren) {
   );
 }
 
+export default Root;
+
+//#endregion
+
+//#region Styles
+
 const responsiveBackground = `
-body {
-  background-color: #fff;
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-  }
-}`;
+	body {
+		background-color: #fff;
+	}
+	@media (prefers-color-scheme: dark) {
+		body {
+			background-color: #000;
+		}
+	}
+`;
+
+//#endregion

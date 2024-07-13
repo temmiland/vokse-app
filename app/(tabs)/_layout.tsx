@@ -1,37 +1,65 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+/**
+ * Copyright (C) 2024 Temmi Pietsch - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the explicitly
+ * permission of the author.
+ */
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+//#region Imports
+
+import { Tabs } from 'expo-router';
+import React, { FC } from 'react';
+
+import TabBarIcon from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+//#endregion
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
-  );
+//#region Component
+
+type TabLayoutProps = {};
+
+const TabLayout: FC<TabLayoutProps> = () => {
+	const colorScheme = useColorScheme();
+
+	return (
+		<Tabs
+			screenOptions={{
+			tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+			headerShown: false,
+		}}>
+			<Tabs.Screen
+				name="index"
+				options={{
+					title: '',
+					tabBarIcon: ({ color, focused }) => (
+						<TabBarIcon focused={focused} name={'house'} color={color} />
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name="plants"
+				options={{
+					title: '',
+					tabBarIcon: ({ color, focused }) => (
+						<TabBarIcon focused={focused}  name={'seedling'} color={color} />
+					),
+				}}
+			/>
+			<Tabs.Screen
+				name="settings"
+				options={{
+					title: '',
+					tabBarIcon: ({ color, focused }) => (
+						<TabBarIcon focused={focused}  name={'gear'} color={color} />
+					),
+				}}
+			/>
+		</Tabs>
+	);
 }
+
+export default TabLayout;
+
+//#endregion

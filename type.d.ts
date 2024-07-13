@@ -5,4 +5,8 @@
  * permission of the author.
  */
 
-export { useColorScheme } from 'react-native';
+type SettingsRegistry = {
+	title: string,
+	platforms: string[],
+	component: FC
+}
