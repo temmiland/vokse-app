@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "vokse",
+    "name": "Vokse",
     "slug": "vokse",
     "version": "1.0.0",
+    "owner": "temmiland",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/images/app-icons/skin_tone_3.png",
+    "scheme": "vokse",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -13,13 +14,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "land.temmi.vokse"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/app-icons/skin_tone_3.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "land.temmi.vokse"
     },
     "web": {
       "bundler": "metro",
@@ -27,10 +30,64 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "@temmiland/expo-dynamic-app-icon",
+        {
+          "skin_tone_1": {
+            "image": "./assets/images/app-icons/skin_tone_1.png",
+            "prerendered": true
+          },
+          "skin_tone_2": {
+            "image": "./assets/images/app-icons/skin_tone_2.png",
+            "prerendered": true
+          },
+          "skin_tone_3": {
+            "image": "./assets/images/app-icons/skin_tone_3.png",
+            "prerendered": true
+          },
+          "skin_tone_4": {
+            "image": "./assets/images/app-icons/skin_tone_4.png",
+            "prerendered": true
+          },
+          "skin_tone_5": {
+            "image": "./assets/images/app-icons/skin_tone_5.png",
+            "prerendered": true
+          }
+        }
+      ],
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "minSdkVersion": 23,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0",
+			"kotlinVersion": "1.9.23"
+          },
+          "ios": {
+            "deploymentTarget": "13.4"
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "875c7c3b-ab3d-4e12-be20-998c8f2bc7f1"
+      }
     }
   }
 }

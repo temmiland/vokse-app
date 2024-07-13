@@ -1,15 +1,21 @@
 {
   "name": "vokse",
   "main": "expo-router/entry",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
+    "setup": "expo prebuild && node ./scripts/setup.js",
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
+    "lint": "expo lint",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+	"buildDev:ios": "expect ./scripts/eas_build_expect.sh development ios",
+	"buildDev:android": "expect ./scripts/eas_build_expect.sh development android",
+	"buildPrev:ios": "expect ./scripts/eas_build_expect.sh preview ios",
+	"buildPrev:android": "expect ./scripts/eas_build_expect.sh preview android",
+	"buildProd:ios": "expect ./scripts/eas_build_expect.sh production ios",
+	"buildProd:android": "expect ./scripts/eas_build_expect.sh production android"
   },
   "jest": {
     "preset": "jest-expo"
@@ -17,11 +23,14 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.0.2",
-    "expo": "~51.0.18",
+    "@temmiland/expo-dynamic-app-icon": "^1.3.1",
+    "expo": "~51.0.20",
+    "expo-build-properties": "~0.12.3",
     "expo-constants": "~16.0.2",
+    "expo-dev-client": "~4.0.20",
     "expo-font": "~12.0.7",
     "expo-linking": "~6.3.1",
-    "expo-router": "~3.5.17",
+    "expo-router": "~3.5.18",
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
