@@ -4,18 +4,19 @@
   "version": "0.0.1",
   "scripts": {
     "setup": "expo prebuild && node ./scripts/setup.js",
-    "start": "expo start",
+    "setup:clean": "expo prebuild --clean && node ./scripts/setup.js",
+    "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "expo lint",
     "test": "jest --watchAll",
-	"buildDev:ios": "expect ./scripts/eas_build_expect.sh development ios",
-	"buildDev:android": "expect ./scripts/eas_build_expect.sh development android",
-	"buildPrev:ios": "expect ./scripts/eas_build_expect.sh preview ios",
-	"buildPrev:android": "expect ./scripts/eas_build_expect.sh preview android",
-	"buildProd:ios": "expect ./scripts/eas_build_expect.sh production ios",
-	"buildProd:android": "expect ./scripts/eas_build_expect.sh production android"
+    "buildDev:ios": "expect ./scripts/eas_build_expect.sh development ios ipa",
+    "buildDev:android": "expect ./scripts/eas_build_expect.sh development android apk",
+    "buildPrev:ios": "expect ./scripts/eas_build_expect.sh preview ios ipa",
+    "buildPrev:android": "expect ./scripts/eas_build_expect.sh preview android aab",
+    "buildProd:ios": "expect ./scripts/eas_build_expect.sh production ios ipa",
+    "buildProd:android": "expect ./scripts/eas_build_expect.sh production android aab"
   },
   "jest": {
     "preset": "jest-expo"
@@ -23,7 +24,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.0.2",
-    "@temmiland/expo-dynamic-app-icon": "^1.3.1",
+    "@temmiland/expo-dynamic-app-icon": "^1.3.5",
     "expo": "~51.0.20",
     "expo-build-properties": "~0.12.3",
     "expo-constants": "~16.0.2",

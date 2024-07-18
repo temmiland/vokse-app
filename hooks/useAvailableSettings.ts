@@ -9,7 +9,7 @@
 
 import { Platform } from 'react-native';
 
-import AppIconSkinTone from '@/components/settings/AppIconSkinTone';
+import AppIcon from '@/components/settings/AppIcon';
 
 //#endregion
 
@@ -19,9 +19,9 @@ export function useAvailableSettings() {
 	
 	const registry: SettingsRegistry[] = [
 		{
-			title: 'App Icon skin tone',
+			title: 'App icon',
 			platforms: ['ios', 'android'],
-			component: AppIconSkinTone
+			component: AppIcon
 		}
 	]	
 	

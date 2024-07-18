@@ -18,7 +18,7 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   const theme = useColorScheme() ?? 'light';
 
   return (
-    <ThemedView style={{backgroundColor: 'transparent'}}>
+    <ThemedView>
       <TouchableOpacity
         style={styles.heading}
         onPress={() => setIsOpen((value) => !value)}
@@ -72,7 +72,7 @@ switch (Platform.OS) {
 				gap: 6,
 			  },
 			  content: {
-				marginTop: 50,
+				marginTop: 6,
 				marginLeft: 24,
 			  },
 		});

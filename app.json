@@ -15,7 +15,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "land.temmi.vokse"
+      "bundleIdentifier": "land.temmi.vokse",
+	  "entitlements": {
+        "aps-environment": "development"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -36,23 +39,38 @@
         {
           "skin_tone_1": {
             "image": "./assets/images/app-icons/skin_tone_1.png",
-            "prerendered": true
+			"iosImageDark": "./assets/images/app-icons/skin_tone_1_dark.png",
+			"iosImageTinted": "./assets/images/app-icons/skin_tone_1_tinted.png",
+            "prerendered": true,
+			"platforms": ["ios", "android"]
           },
           "skin_tone_2": {
             "image": "./assets/images/app-icons/skin_tone_2.png",
-            "prerendered": true
+			"iosImageDark": "./assets/images/app-icons/skin_tone_2_dark.png",
+			"iosImageTinted": "./assets/images/app-icons/skin_tone_2_tinted.png",
+            "prerendered": true,
+			"platforms": ["ios", "android"]
           },
           "skin_tone_3": {
             "image": "./assets/images/app-icons/skin_tone_3.png",
-            "prerendered": true
+			"iosImageDark": "./assets/images/app-icons/skin_tone_3_dark.png",
+			"iosImageTinted": "./assets/images/app-icons/skin_tone_3_tinted.png",
+            "prerendered": true,
+			"platforms": ["ios", "android"]
           },
           "skin_tone_4": {
             "image": "./assets/images/app-icons/skin_tone_4.png",
-            "prerendered": true
+			"iosImageDark": "./assets/images/app-icons/skin_tone_4_dark.png",
+			"iosImageTinted": "./assets/images/app-icons/skin_tone_4_tinted.png",
+            "prerendered": true,
+			"platforms": ["ios", "android"]
           },
           "skin_tone_5": {
             "image": "./assets/images/app-icons/skin_tone_5.png",
-            "prerendered": true
+			"iosImageDark": "./assets/images/app-icons/skin_tone_5_dark.png",
+			"iosImageTinted": "./assets/images/app-icons/skin_tone_5_tinted.png",
+            "prerendered": true,
+			"platforms": ["ios", "android"]
           }
         }
       ],

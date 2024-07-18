@@ -5,10 +5,10 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
+      "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "store"
     },
     "production": {
 	}
