@@ -15,6 +15,7 @@ import { Colors } from '@/constants/Colors';
 import { ThemedText } from '../ThemedText';
 import EmptyModule from './EmptyModule';
 import { ThemedView } from '../ThemedView';
+import React from 'react';
 
 // Dynamic import of the native module "expo-dynamic-app-icon".
 let ExpoDynamicAppIconModule;
@@ -29,21 +30,11 @@ if (Platform.OS === 'ios' || Platform.OS === 'android') {
 
 // AppIcon imports
 const appIcons = [
-	require('@/assets/images/app-icons/skin_tone_1.png'),
-	require('@/assets/images/app-icons/skin_tone_2.png'),
-	require('@/assets/images/app-icons/skin_tone_3.png'),
-	require('@/assets/images/app-icons/skin_tone_4.png'),
-	require('@/assets/images/app-icons/skin_tone_5.png'),
-	require('@/assets/images/app-icons/skin_tone_1_dark.png'),
-	require('@/assets/images/app-icons/skin_tone_2_dark.png'),
-	require('@/assets/images/app-icons/skin_tone_3_dark.png'),
-	require('@/assets/images/app-icons/skin_tone_4_dark.png'),
-	require('@/assets/images/app-icons/skin_tone_5_dark.png'),
-	require('@/assets/images/app-icons/skin_tone_1_tinted.png'),
-	require('@/assets/images/app-icons/skin_tone_2_tinted.png'),
-	require('@/assets/images/app-icons/skin_tone_3_tinted.png'),
-	require('@/assets/images/app-icons/skin_tone_4_tinted.png'),
-	require('@/assets/images/app-icons/skin_tone_5_tinted.png')
+	require('@/assets/images/app-icons/skin_tone_1_256.png'),
+	require('@/assets/images/app-icons/skin_tone_2_256.png'),
+	require('@/assets/images/app-icons/skin_tone_3_256.png'),
+	require('@/assets/images/app-icons/skin_tone_4_256.png'),
+	require('@/assets/images/app-icons/skin_tone_5_256.png'),
 ]
 
 //#endregion
@@ -130,7 +121,7 @@ const AppIcon: FC<AppIconProps> = () => {
 		<>
 			<ThemedView onLayout={ onLayout }>
 				<ThemedText style={{fontSize: 14, fontWeight: 600, marginVertical: 5 }}>
-					Light and dark variant
+					Skin tone options
 				</ThemedText>
 				<ThemedText style={{fontSize: 14, marginBottom: 5 }}>
 					These icon sets allow you to customize the app icon to your preferred appearance.
@@ -149,44 +140,24 @@ const AppIcon: FC<AppIconProps> = () => {
 						))
 					}
 				</ThemedView>
-				<ThemedView style={{ flexDirection: 'row' }}>
-				{
-					[...Array(5).keys()].map((it, i, a) => (
-							<AppIconItem
-								key={i}
-								iconName={`skin_tone_${it+1}_dark`}
-								iconSource={appIcons[it+5]}
-								forceUpdate={forceUpdate}
-								viewWidth={ viewWidth }
-								itemCount={ a.length }
-							/>
-					))
-				}
-				</ThemedView>
 				{
 					Platform.OS === "ios" && parseInt(Platform.Version, 10) >= 18
 					? (
 						<>
-							<ThemedText style={{fontSize: 14, fontWeight: 600, marginVertical: 5 }}>
-								Tinted variant
+							<ThemedText style={{fontSize: 14, marginVertical: 5 }}>
+								All icon sets support the new tinted icons!
 							</ThemedText>
-							<ThemedText style={{fontSize: 14, marginBottom: 5 }}>
-								This icon set should be used if you are using the tinted icons that come with iOS 18.
+						</>
+					)
+					: ''
+				}
+				{
+					Platform.OS === "android" && Platform.Version >= 33
+					? (
+						<>
+							<ThemedText style={{fontSize: 14, marginVertical: 5 }}>
+								All icon sets support the monochrome icon style!
 							</ThemedText>
-							<ThemedView style={{ flexDirection: 'row' }}>
-							{
-								[...Array(5).keys()].map((it, i, a) => (
-									<AppIconItem
-										key={i}
-										iconName={`skin_tone_${it+1}_tinted`}
-										iconSource={appIcons[it+10]}
-										forceUpdate={forceUpdate}
-										viewWidth={ viewWidth }
-										itemCount={ a.length }
-									/>
-								))
-							}
-							</ThemedView>
 						</>
 					)
 					: ''
