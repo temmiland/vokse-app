@@ -21,6 +21,7 @@ expect {
     "Log in to your Apple Developer account to continue" { send "\r"; exp_continue }
 	"Reuse this distribution certificate?" { send "\r"; exp_continue }
     "Would you like to reuse the profile?" { send "\r"; exp_continue }
+	"Generate a new Apple Provisioning Profile?" { send "\r"; exp_continue }
     eof
 }
 
