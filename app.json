@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "owner": "temmiland",
     "orientation": "portrait",
-    "icon": "./assets/images/app-icons/skin_tone_3.png",
     "scheme": "vokse",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -14,24 +13,25 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "icon": "./assets/images/app-icons/ios_skin_tone_3.png",
       "supportsTablet": true,
       "bundleIdentifier": "land.temmi.vokse",
       "entitlements": {
         "aps-environment": "development"
       },
-      "buildNumber": "5"
+      "buildNumber": "7"
     },
     "androidNavigationBar": {
       "barStyle": "light-content"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/app-icons/skin_tone_3_dark.png",
+        "foregroundImage": "./assets/images/app-icons/android_skin_tone_3.png",
         "backgroundColor": "#ffffff",
-        "monochromeImage": "./assets/images/app-icons/skin_tone_3_tinted.png"
+        "monochromeImage": "./assets/images/app-icons/android_skin_tone_mono.png"
       },
       "package": "land.temmi.vokse",
-      "versionCode": 5
+      "versionCode": 8
     },
     "web": {
       "bundler": "metro",
@@ -44,10 +44,11 @@
         "@temmiland/expo-dynamic-app-icon",
         {
           "skin_tone_1": {
-            "image": "./assets/images/app-icons/skin_tone_1_dark.png",
-            "androidImageMonochrome": "./assets/images/app-icons/skin_tone_1_tinted.png",
-            "iosImageDark": "./assets/images/app-icons/skin_tone_1_dark.png",
-            "iosImageTinted": "./assets/images/app-icons/skin_tone_1_tinted.png",
+            "androidForeground": "./assets/images/app-icons/android_skin_tone_1.png",
+            "androidMonochrome": "./assets/images/app-icons/android_skin_tone_mono.png",
+            "iosLight": "./assets/images/app-icons/ios_skin_tone_1.png",
+            "iosDark": "./assets/images/app-icons/ios_skin_tone_1.png",
+            "iosTinted": "./assets/images/app-icons/ios_skin_tone_1_tinted.png",
             "prerendered": true,
             "platforms": [
               "ios",
@@ -56,10 +57,11 @@
             "isMainIcon": false
           },
           "skin_tone_2": {
-            "image": "./assets/images/app-icons/skin_tone_2_dark.png",
-            "androidImageMonochrome": "./assets/images/app-icons/skin_tone_1_tinted.png",
-            "iosImageDark": "./assets/images/app-icons/skin_tone_2_dark.png",
-            "iosImageTinted": "./assets/images/app-icons/skin_tone_2_tinted.png",
+            "androidForeground": "./assets/images/app-icons/android_skin_tone_2.png",
+            "androidMonochrome": "./assets/images/app-icons/android_skin_tone_mono.png",
+            "iosLight": "./assets/images/app-icons/ios_skin_tone_2.png",
+            "iosDark": "./assets/images/app-icons/ios_skin_tone_2.png",
+            "iosTinted": "./assets/images/app-icons/ios_skin_tone_2_tinted.png",
             "prerendered": true,
             "platforms": [
               "ios",
@@ -68,10 +70,11 @@
             "isMainIcon": false
           },
           "skin_tone_3": {
-            "image": "./assets/images/app-icons/skin_tone_3_dark.png",
-            "androidImageMonochrome": "./assets/images/app-icons/skin_tone_1_tinted.png",
-            "iosImageDark": "./assets/images/app-icons/skin_tone_3_dark.png",
-            "iosImageTinted": "./assets/images/app-icons/skin_tone_3_tinted.png",
+            "androidForeground": "./assets/images/app-icons/android_skin_tone_3.png",
+            "androidMonochrome": "./assets/images/app-icons/android_skin_tone_mono.png",
+            "iosLight": "./assets/images/app-icons/ios_skin_tone_3.png",
+            "iosDark": "./assets/images/app-icons/ios_skin_tone_3.png",
+            "iosTinted": "./assets/images/app-icons/ios_skin_tone_3_tinted.png",
             "prerendered": true,
             "platforms": [
               "ios",
@@ -80,10 +83,11 @@
             "isMainIcon": true
           },
           "skin_tone_4": {
-            "image": "./assets/images/app-icons/skin_tone_4_dark.png",
-            "androidImageMonochrome": "./assets/images/app-icons/skin_tone_1_tinted.png",
-            "iosImageDark": "./assets/images/app-icons/skin_tone_4_dark.png",
-            "iosImageTinted": "./assets/images/app-icons/skin_tone_4_tinted.png",
+            "androidForeground": "./assets/images/app-icons/android_skin_tone_4.png",
+            "androidMonochrome": "./assets/images/app-icons/android_skin_tone_mono.png",
+            "iosLight": "./assets/images/app-icons/ios_skin_tone_4.png",
+            "iosDark": "./assets/images/app-icons/ios_skin_tone_4.png",
+            "iosTinted": "./assets/images/app-icons/ios_skin_tone_4_tinted.png",
             "prerendered": true,
             "platforms": [
               "ios",
@@ -92,10 +96,11 @@
             "isMainIcon": false
           },
           "skin_tone_5": {
-            "image": "./assets/images/app-icons/skin_tone_5_dark.png",
-            "androidImageMonochrome": "./assets/images/app-icons/skin_tone_1_tinted.png",
-            "iosImageDark": "./assets/images/app-icons/skin_tone_5_dark.png",
-            "iosImageTinted": "./assets/images/app-icons/skin_tone_5_tinted.png",
+            "androidForeground": "./assets/images/app-icons/android_skin_tone_5.png",
+            "androidMonochrome": "./assets/images/app-icons/android_skin_tone_mono.png",
+            "iosLight": "./assets/images/app-icons/ios_skin_tone_5.png",
+            "iosDark": "./assets/images/app-icons/ios_skin_tone_5.png",
+            "iosTinted": "./assets/images/app-icons/ios_skin_tone_5_tinted.png",
             "prerendered": true,
             "platforms": [
               "ios",

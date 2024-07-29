@@ -30,11 +30,16 @@ if (Platform.OS === 'ios' || Platform.OS === 'android') {
 
 // AppIcon imports
 const appIcons = [
-	require('@/assets/images/app-icons/skin_tone_1_256.png'),
-	require('@/assets/images/app-icons/skin_tone_2_256.png'),
-	require('@/assets/images/app-icons/skin_tone_3_256.png'),
-	require('@/assets/images/app-icons/skin_tone_4_256.png'),
-	require('@/assets/images/app-icons/skin_tone_5_256.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_1.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_2.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_3.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_4.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_5.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_1_dark.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_2_dark.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_3_dark.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_4_dark.png'),
+	require('@/assets/images/app-icons/sizes/256/skin_tone_5_dark.png'),
 ]
 
 //#endregion
@@ -110,6 +115,8 @@ const AppIcon: FC<AppIconProps> = () => {
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
 	const [viewWidth, setViewWidth] = useState(0);
 
+	const colorScheme = useColorScheme();
+
 	const onLayout = (event: any) => {
 		const { width } = event.nativeEvent.layout;
 		if (viewWidth < width) {
@@ -132,7 +139,7 @@ const AppIcon: FC<AppIconProps> = () => {
 								<AppIconItem
 									key={i}
 									iconName={`skin_tone_${it+1}`}
-									iconSource={appIcons[it]}
+									iconSource={appIcons[colorScheme === 'dark' ? it+5 : it]}
 									forceUpdate={forceUpdate}
 									viewWidth={ viewWidth }
 									itemCount={ a.length }
