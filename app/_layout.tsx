@@ -7,15 +7,19 @@
 
 //#region Imports
 
+import React from 'react';
+
 import 'react-native-reanimated';
 
+import * as NavigationBar from 'expo-navigation-bar';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Appearance, Platform } from 'react-native';
 
 //#endregion
 
@@ -41,6 +45,16 @@ const RootLayout: FC<RootLayoutProps> = () => {
 			SplashScreen.hideAsync();
 		}
 	}, [loaded]);
+
+	useEffect(() => {
+		const subscription = Appearance.addChangeListener(({ colorScheme }) => {
+			if(Platform.OS === "android") {
+				NavigationBar.setBackgroundColorAsync(colorScheme === "dark" ? "#121212" : "#ffffff")
+			}
+		});
+
+		return () => subscription.remove();
+	}, []);
 
 	if (!loaded) {
 		return null;
