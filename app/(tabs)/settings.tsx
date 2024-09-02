@@ -9,9 +9,10 @@
 
 import { FC } from 'react';
 
-import { Collapsible } from '@/components/Collapsible';
+import Card from '@/components/card/Card';
 import VokseView from '@/components/navigation/VokseView';
 import { useAvailableSettings } from '@/hooks/useAvailableSettings';
+import { ThemedText } from '@/components/ThemedText';
 
 //#endregion
 
@@ -29,9 +30,10 @@ const SettingsTab: FC<SettingsTabProps> = () => {
 				availableSettings.map((availableSetting, i) => {
 					const Component = availableSetting.component;
 					return (
-						<Collapsible key={i} title={availableSetting.title}>
+						<Card key={i}>
+							<ThemedText type="subtitle">{availableSetting.title}</ThemedText>
 							<Component />
-						</Collapsible>
+						</Card>
 					);
 				})
 			}

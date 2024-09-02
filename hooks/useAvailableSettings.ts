@@ -16,15 +16,15 @@ import AppIcon from '@/components/settings/AppIcon';
 //#region Hook
 
 export function useAvailableSettings() {
-	
+
 	const registry: SettingsRegistry[] = [
 		{
-			title: 'App icon',
+			title: 'App Icon',
 			platforms: ['ios', 'android'],
 			component: AppIcon
 		}
-	]	
-	
+	]
+
 	return registry.filter(reg => reg.platforms.includes(Platform.OS));
 }
 

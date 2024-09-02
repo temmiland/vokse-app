@@ -8,7 +8,7 @@
 //#region Imports
 
 import { FC, useReducer, useState } from 'react';
-import { Image, Platform, TouchableOpacity, useColorScheme } from 'react-native';
+import { Image, Platform, TouchableOpacity, useColorScheme, View } from 'react-native';
 
 import { Colors } from '@/constants/Colors';
 
@@ -62,7 +62,7 @@ const AppIconItem: FC<AppIconItemProps> = ({
 	itemCount
 }) => {
 	const colorScheme = useColorScheme();
-	
+
 	// fix for a rerender problem in android
 	return viewWidth > 0
 		? (
@@ -107,7 +107,7 @@ const AppIconItem: FC<AppIconItemProps> = ({
 //#endregion
 
 //#region Component - AppIcon
-	
+
 type AppIconProps = {}
 
 const AppIcon: FC<AppIconProps> = () => {
@@ -126,14 +126,14 @@ const AppIcon: FC<AppIconProps> = () => {
 
 	return (
 		<>
-			<ThemedView onLayout={ onLayout }>
-				<ThemedText style={{fontSize: 14, fontWeight: 600, marginVertical: 5 }}>
+			<View onLayout={ onLayout }>
+				<ThemedText style={{fontSize: 14, fontWeight: 600, marginTop: 8, marginBottom: 5 }}>
 					Skin tone options
 				</ThemedText>
 				<ThemedText style={{fontSize: 14, marginBottom: 5 }}>
 					These icon sets allow you to customize the app icon to your preferred appearance.
 				</ThemedText>
-				<ThemedView style={{ flexDirection: 'row' }}>
+				<View style={{ flexDirection: 'row' }}>
 					{
 						[...Array(5).keys()].map((it, i, a) => (
 								<AppIconItem
@@ -146,12 +146,12 @@ const AppIcon: FC<AppIconProps> = () => {
 								/>
 						))
 					}
-				</ThemedView>
+				</View>
 				{
 					Platform.OS === "ios" && parseInt(Platform.Version, 10) >= 18
 					? (
 						<>
-							<ThemedText style={{fontSize: 14, marginVertical: 5 }}>
+							<ThemedText style={{ fontSize: 14, marginVertical: 5 }}>
 								All icon sets support the new tinted icons!
 							</ThemedText>
 						</>
@@ -169,7 +169,7 @@ const AppIcon: FC<AppIconProps> = () => {
 					)
 					: ''
 				}
-			</ThemedView>
+			</View>
 		</>
 	);
 }

@@ -19,7 +19,7 @@
       "entitlements": {
         "aps-environment": "development"
       },
-      "buildNumber": "9"
+      "buildNumber": "11"
     },
     "androidNavigationBar": {
       "barStyle": "light-content"

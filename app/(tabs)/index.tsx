@@ -21,7 +21,7 @@ type IndexTabProps = {};
 const IndexTab: FC<IndexTabProps> = () => {
 
 	return (
-		<VokseView title="Hello, Temmi!">
+		<VokseView title="Hei, Temmi!">
 			<ThemedText type='default'>Todo</ThemedText>
 		</VokseView>
 	);
