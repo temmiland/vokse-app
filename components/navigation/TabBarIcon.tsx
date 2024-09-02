@@ -25,18 +25,22 @@ interface TabBarProps extends IconProps<ComponentProps<typeof FontAwesome6>['nam
 }
 
 const TabBarIcon: FC<TabBarProps> = ({ focused, ...rest }) => {
-  
-	const rotationAnimation = useSharedValue(0);
 
-	rotationAnimation.value = withRepeat(
-	  withSequence(withTiming(15, { duration: 150 }), withTiming(0, { duration: 150 })),
-	  1
-	);
+	const scaleAnimation = useSharedValue(1);
+
+	if (focused) {
+        scaleAnimation.value = withRepeat(
+            withSequence(withTiming(1.2, { duration: 150 }), withTiming(1, { duration: 150 })),
+            1
+        );
+    } else {
+        scaleAnimation.value = 1; // Reset to default when not focused
+    }
 
 	const animatedStyle = useAnimatedStyle(() => ({
-		transform: [{ rotate: `${rotationAnimation.value}deg` }],
-	}));
-	
+        transform: [{ scale: scaleAnimation.value }],
+    }));
+
 	return (
 		<Animated.View style={focused ? animatedStyle : {}}>
 			<FontAwesome6 size={22} style={[styles.tabBarIcon]} {...rest} />
