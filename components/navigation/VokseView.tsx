@@ -8,7 +8,7 @@
 //#region Imports
 
 import { FC } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, ScrollView } from 'react-native';
 
 import { ThemedText } from '../ThemedText';
 import { ThemedView } from '../ThemedView';
@@ -32,9 +32,14 @@ const VokseView: FC<VokseViewProps> = ({ title, children }) => {
 				<ThemedView style={ styles.titleView }>
 					<ThemedText type="title">{ title }</ThemedText>
 				</ThemedView>
-				<ThemedView style={ styles.contentView }>
+				<ScrollView
+					style={ styles.contentView }
+					contentContainerStyle={styles.contentContainer}
+					contentInset={{ bottom: 150 }}
+					contentInsetAdjustmentBehavior="automatic"
+				>
 					{ children }
-				</ThemedView>
+				</ScrollView>
 			</ThemedView>
 		</ThemedView>
 	);
@@ -49,104 +54,124 @@ export default VokseView;
 let styles: any;
 
 switch (Platform.OS) {
-	case 'web':
-		styles = StyleSheet.create({
-			outerView: {
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-			},
-			innerView: {
-				zIndex: 99999,
-				width: '100%',
-				position: 'absolute',
-				top: 0,
-			},
-			titleView: {
-				top: 30,
-				paddingLeft: 30,
-				paddingRight: 30
-			},
-			contentView: {
-				top: 55,
-				paddingLeft: 30,
-				paddingRight: 30
-			},
-		});
-		break;
-	case 'ios':
-		styles = StyleSheet.create({
-			outerView: {
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-			},
-			innerView: {
-				zIndex: 99999,
-				width: '100%',
-				position: 'absolute',
-				top: 0,
-			},
-			titleView: {
-				top: 100,
-				paddingHorizontal: 20,
-			},
-			contentView: {
-				top: 125,
-				paddingHorizontal: 20,
-			},
-		});
-		break;
-	case 'android':
-		styles = StyleSheet.create({
-			outerView: {
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-			},
-			innerView: {
-				zIndex: 99999,
-				width: '100%',
-				position: 'absolute',
-				top: 0,
-			},
-			titleView: {
-				top: 100,
-				paddingLeft: 20,
-				paddingRight: 20
-			},
-			contentView: {
-				top: 125,
-				paddingLeft: 20,
-				paddingRight: 20
-			},
-		});
-		break;
-	default:
-		styles = StyleSheet.create({
-			outerView: {
-				flex: 1,
-				alignItems: 'center',
-				justifyContent: 'center',
-			},
-			innerView: {
-				zIndex: 99999,
-				width: '100%',
-				position: 'absolute',
-				top: 0,
-			},
-			titleView: {
-				top: 100,
-				paddingLeft: 20,
-				paddingRight: 20
-			},
-			contentView: {
-				top: 125,
-				paddingLeft: 20,
-				paddingRight: 20
-			},
-		});
-		break;
+    case 'web':
+        styles = StyleSheet.create({
+            outerView: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            innerView: {
+                zIndex: 99999,
+                width: '100%',
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+            },
+            titleView: {
+                top: 30,
+                paddingLeft: 30,
+                paddingRight: 30
+            },
+            contentView: {
+                flex: 1,
+                top: 55,
+                paddingLeft: 30,
+                paddingRight: 30,
+            },
+            contentContainer: {
+                paddingBottom: 30,
+            }
+        });
+        break;
+    case 'ios':
+        styles = StyleSheet.create({
+            outerView: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            innerView: {
+                zIndex: 99999,
+                width: '100%',
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+            },
+            titleView: {
+                top: 100,
+                paddingHorizontal: 20,
+            },
+            contentView: {
+                flex: 1,
+                top: 125,
+                paddingHorizontal: 20,
+            },
+            contentContainer: {
+                paddingBottom: 30,
+            }
+        });
+        break;
+    case 'android':
+        styles = StyleSheet.create({
+            outerView: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            innerView: {
+                zIndex: 99999,
+                width: '100%',
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+            },
+            titleView: {
+                top: 100,
+                paddingLeft: 20,
+                paddingRight: 20
+            },
+            contentView: {
+                flex: 1,
+                top: 125,
+                paddingLeft: 20,
+                paddingRight: 20,
+            },
+            contentContainer: {
+                paddingBottom: 30,
+            }
+        });
+        break;
+    default:
+        styles = StyleSheet.create({
+            outerView: {
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+            innerView: {
+                zIndex: 99999,
+                width: '100%',
+                position: 'absolute',
+                top: 0,
+                bottom: 0,
+            },
+            titleView: {
+                top: 100,
+                paddingLeft: 20,
+                paddingRight: 20
+            },
+            contentView: {
+                flex: 1,
+                top: 125,
+                paddingLeft: 20,
+                paddingRight: 20,
+            },
+            contentContainer: {
+                paddingBottom: 30
+            }
+        });
+        break;
 }
 
 //#endregion

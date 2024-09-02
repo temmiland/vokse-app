@@ -19,7 +19,7 @@
       "entitlements": {
         "aps-environment": "development"
       },
-      "buildNumber": "7"
+      "buildNumber": "9"
     },
     "androidNavigationBar": {
       "barStyle": "light-content"
@@ -31,7 +31,7 @@
         "monochromeImage": "./assets/images/app-icons/android_skin_tone_mono.png"
       },
       "package": "land.temmi.vokse",
-      "versionCode": 8
+      "versionCode": 11
     },
     "web": {
       "bundler": "metro",
