@@ -17,6 +17,10 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { FC, useEffect, useState } from 'react';
 
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor, store } from '@/redux/store';
+
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Appearance, Platform } from 'react-native';
@@ -62,10 +66,14 @@ const RootLayout: FC<RootLayoutProps> = () => {
 
 	return (
 		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-			<Stack>
-				<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-				<Stack.Screen name="+not-found" />
-			</Stack>
+			<Provider store={store}>
+				<PersistGate loading={null} persistor={persistor}>
+					<Stack>
+						<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+						<Stack.Screen name="+not-found" />
+					</Stack>
+				</PersistGate>
+			</Provider>
 		</ThemeProvider>
 	);
 }

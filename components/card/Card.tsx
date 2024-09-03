@@ -17,5 +17,5 @@ export type CardProps = ViewProps & {
 export default function Card({ style, lightColor, darkColor, ...otherProps }: CardProps) {
 	const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'secondaryBackground');
 
-	return <View style={[{ backgroundColor, borderRadius: 20, padding: 15 }, style]} {...otherProps} />;
+	return <View style={[{ backgroundColor, borderRadius: 20, padding: 15, marginBottom: 15 }, style]} {...otherProps} />;
 }

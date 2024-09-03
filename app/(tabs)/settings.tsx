@@ -13,6 +13,7 @@ import Card from '@/components/card/Card';
 import VokseView from '@/components/navigation/VokseView';
 import { useAvailableSettings } from '@/hooks/useAvailableSettings';
 import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 
 //#endregion
 

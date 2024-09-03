@@ -7,10 +7,11 @@
 
 //#region Imports
 
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import VokseView from '@/components/navigation/VokseView';
 import { ThemedText } from '@/components/ThemedText';
+import { useSelector } from 'react-redux';
 
 //#endregion
 
@@ -20,8 +21,10 @@ type IndexTabProps = {};
 
 const IndexTab: FC<IndexTabProps> = () => {
 
+	const firstName = useSelector((state: any) => state.account.firstName);
+
 	return (
-		<VokseView title="Hei, Temmi!">
+		<VokseView title={firstName ? 'Hei, ' + firstName + '!' : 'Hei!'}>
 			<ThemedText type='default'>Todo</ThemedText>
 		</VokseView>
 	);

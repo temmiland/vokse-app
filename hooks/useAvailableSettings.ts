@@ -9,6 +9,7 @@
 
 import { Platform } from 'react-native';
 
+import Account from '@/components/settings/Account';
 import AppIcon from '@/components/settings/AppIcon';
 
 //#endregion
@@ -18,6 +19,11 @@ import AppIcon from '@/components/settings/AppIcon';
 export function useAvailableSettings() {
 
 	const registry: SettingsRegistry[] = [
+		{
+			title: 'My Account',
+			platforms: ['ios', 'android'],
+			component: Account
+		},
 		{
 			title: 'App Icon',
 			platforms: ['ios', 'android'],
