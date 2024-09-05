@@ -10,7 +10,7 @@
 import { Tabs } from 'expo-router';
 import { BlurView } from 'expo-blur';
 import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
 import TabBarIcon from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
@@ -35,19 +35,30 @@ const TabLayout: FC<TabLayoutProps> = () => {
 					borderTopLeftRadius: 20,
 					borderTopRightRadius: 20,
 					borderTopWidth: 0,
-					shadowColor: Colors[colorScheme ?? 'light'].tint,
+					shadowColor: Platform.OS === 'ios' ? Colors[colorScheme ?? 'light'].tint : '',
 					shadowOpacity: 0.15,
-					shadowRadius: 20
+					shadowRadius: 20,
 				},
 				tabBarBackground: () => (
-					<BlurView intensity={80} tint="light" style={{
-						...StyleSheet.absoluteFillObject,
-						borderTopRightRadius: 20,
-						borderTopLeftRadius: 20,
-						borderTopWidth: 0,
-						overflow: 'hidden',
-						backgroundColor: 'transparent'
-					}} />
+					Platform.OS === 'ios' ? (
+						<BlurView intensity={80} tint="light" style={{
+							...StyleSheet.absoluteFillObject,
+							borderTopRightRadius: 20,
+							borderTopLeftRadius: 20,
+							borderTopWidth: 0,
+							overflow: 'hidden',
+							backgroundColor: 'transparent'
+						}} />
+					) : (
+						<View style={{
+							backgroundColor: Colors[colorScheme ?? 'light'].androidTabBarBackground,
+							...StyleSheet.absoluteFillObject,
+							borderTopRightRadius: 20,
+							borderTopLeftRadius: 20,
+							borderTopWidth: 0,
+							overflow: 'hidden',
+						}} />
+					)
 				),
 			}}
 		>

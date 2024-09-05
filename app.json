@@ -23,7 +23,7 @@
       "entitlements": {
         "aps-environment": "development"
       },
-      "buildNumber": "13"
+      "buildNumber": "14"
     },
     "androidNavigationBar": {
       "barStyle": "light-content"
@@ -35,7 +35,7 @@
         "monochromeImage": "./assets/images/app-icons/android_skin_tone_mono.png"
       },
       "package": "land.temmi.vokse",
-      "versionCode": 11
+      "versionCode": 12
     },
     "plugins": [
       "expo-router",

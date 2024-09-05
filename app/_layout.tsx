@@ -47,13 +47,22 @@ const RootLayout: FC<RootLayoutProps> = () => {
 	useEffect(() => {
 		if (loaded) {
 			SplashScreen.hideAsync();
+			NavigationBar.setBackgroundColorAsync(
+				colorScheme === "dark"
+					? "#4a4a4a"
+					: "#ffffff"
+			)
 		}
 	}, [loaded]);
 
 	useEffect(() => {
 		const subscription = Appearance.addChangeListener(({ colorScheme }) => {
 			if(Platform.OS === "android") {
-				NavigationBar.setBackgroundColorAsync(colorScheme === "dark" ? "#121212" : "#ffffff")
+				NavigationBar.setBackgroundColorAsync(
+					colorScheme === "dark"
+						? "#4a4a4a"
+						: "#ffffff"
+				)
 			}
 		});
 
