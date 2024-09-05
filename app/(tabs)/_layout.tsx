@@ -35,7 +35,7 @@ const TabLayout: FC<TabLayoutProps> = () => {
 					borderTopLeftRadius: 20,
 					borderTopRightRadius: 20,
 					borderTopWidth: 0,
-					shadowColor: 'black',
+					shadowColor: Colors[colorScheme ?? 'light'].tint,
 					shadowOpacity: 0.15,
 					shadowRadius: 20
 				},

@@ -24,7 +24,7 @@ const IndexTab: FC<IndexTabProps> = () => {
 	const firstName = useSelector((state: any) => state.account.firstName);
 
 	return (
-		<VokseView title={firstName ? 'Hei, ' + firstName + '!' : 'Hei!'}>
+		<VokseView title={firstName ? 'Hei ' + firstName + '!' : 'Hei!'}>
 			<ThemedText type='default'>Todo</ThemedText>
 		</VokseView>
 	);

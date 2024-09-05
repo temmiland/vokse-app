@@ -6,9 +6,10 @@
  */
 
 import React from 'react';
-import { StyleSheet, TextInput, TextInputProps } from 'react-native';
+import { StyleSheet, TextInput, TextInputProps, useColorScheme } from 'react-native';
 
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { Colors } from '@/constants/Colors';
 
 export type ThemedTextInputProps = TextInputProps & {
   lightColor?: string;
@@ -23,25 +24,26 @@ export function ThemedTextInput({
   type = 'default',
   ...rest
 }: ThemedTextInputProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+	const colorScheme = useColorScheme();
+	const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return (
-    <TextInput
-      style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        style,
-      ]}
-      {...rest}
-    />
-  );
+	return (
+		<TextInput
+		style={[
+			{ color },
+			{ backgroundColor: Colors[colorScheme ?? 'light'].tertiaryBackground },
+			type === 'default' ? styles.default : undefined,
+			style,
+		]}
+		{...rest}
+		/>
+	);
 }
 
 const styles = StyleSheet.create({
   default: {
     fontSize: 14,
 	padding: 10,
-	backgroundColor: '#2c2c2c',
 	borderRadius: 10,
   }
 });

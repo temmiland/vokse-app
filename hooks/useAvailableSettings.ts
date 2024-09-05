@@ -11,6 +11,7 @@ import { Platform } from 'react-native';
 
 import Account from '@/components/settings/Account';
 import AppIcon from '@/components/settings/AppIcon';
+import Info from '@/components/settings/Info';
 
 //#endregion
 
@@ -28,6 +29,11 @@ export function useAvailableSettings() {
 			title: 'App Icon',
 			platforms: ['ios', 'android'],
 			component: AppIcon
+		},
+		{
+			title: 'Info',
+			platforms: ['ios', 'android'],
+			component: Info
 		}
 	]
 
